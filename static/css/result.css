@@ -1,0 +1,167 @@
+* {
+    margin: auto;
+    padding: 0;
+}
+
+body {
+    font-family: "Chivo", sans-serif;
+    color: white;
+}
+
+body {
+    position: relative;
+    max-width: 100%;
+    height: 130vh;
+
+}
+
+body h2 {
+    padding: 5px;
+}
+
+h1,
+h2 {
+    text-align: center;
+}
+
+h1 {
+
+    padding: 10px;
+}
+
+body::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-image: url(../images/img1.jpg);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    filter: brightness(25%);
+    z-index: -1;
+}
+
+form {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+}
+
+h1,
+h2 {
+    color: coral;
+}
+
+.form {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin: 30px;
+    width: 420px;
+    height: 450px;
+    padding: 1rem;
+    border-radius: 14px;
+    box-shadow: 0px 0px 13px 0px rgb(237, 178, 157);
+}
+
+
+.form-main {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: auto;
+}
+
+.buttons {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+}
+
+input,
+select {
+    height: 30px;
+    width: 240px;
+    padding: 3px;
+    border: 2px solid coral;
+    outline: none;
+    background: transparent;
+    border-radius: 4px;
+    color: white;
+
+}
+
+label {
+    padding: 2px;
+}
+
+option {
+    color: black;
+    background: transparent;
+}
+
+button {
+    padding: 0.5rem;
+    margin: 10px;
+    border: 2px solid black;
+    border-color: yellow;
+    border-radius: 6px;
+    font-weight: bold;
+    outline: none;
+    box-shadow: none;
+    background: linear-gradient(to right, rgb(244, 97, 43), rgb(237, 178, 157));
+    margin-right: 5px;
+}
+
+button:hover {
+    background: linear-gradient(to left, coral, rgb(243, 159, 128));
+    cursor: pointer;
+    border-color: yellowgreen;
+
+
+}
+
+.prediction-value {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+    padding: 15px;
+
+}
+
+.prediction-value p {
+    color: coral;
+    padding: 0.5rem;
+    font-weight: bold;
+}
+
+
+#predictionResult {
+    color: coral;
+    padding: 0.5rem;
+    font-weight: bold;
+    font-size: larger;
+}
+
+.disclaimer {
+    margin: auto;
+    margin-top: 6rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+
+#disclaimer {
+    font-style: italic;
+
+}

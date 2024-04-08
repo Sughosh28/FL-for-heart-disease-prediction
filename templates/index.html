@@ -1,0 +1,304 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Federated Learning Interface</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Inria+Sans:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Pacifico&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="main.css">
+    <script src="https://kit.fontawesome.com/4f15497914.js" crossorigin="anonymous"></script>
+    <style>
+        @keyframes zoomInOut {
+            0% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.2);
+                /* Zoom in */
+            }
+
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        #server {
+            animation: zoomInOut 2s infinite;
+            z-index:-1;
+        }
+
+        #server {
+            transition: transform 0.5s ease-in-out;
+        }
+
+
+        .clicked {
+    background-color: coral; /* Change the background color to green when the button is clicked */
+    color: white; /* Change the text color to white */
+    /* Add any other styles you want to apply */
+}
+
+    </style>
+</head>
+
+<body class="bg-gradient-to-b from-orange-400 via-orange-300 to-orange-200 h-full">
+    <nav class="h-18 w-full flex items-center justify-around bg-zinc-50 border-b-4 border-red-600 fixed top-0">
+        <div>
+            <p class="text-center text-red-700 font-semibold  font-signature">Federated Learning Interface</p>
+        </div>
+        <ul class="flex items-center justify-center  ">
+            <li class="m-4 p-2 font-signature hover:scale-105 duration-300 hover:text-red-800  hover:font-semibold"><a
+                    href="#home">Home</a>
+            </li>
+
+            <li class="m-4 p-2 font-signature hover:scale-105 duration-300 hover:text-red-800  hover:font-semibold"><a
+                    href="#start">Start
+                    FL</a></li>
+            <li class="m-4 p-2 font-signature hover:scale-105 duration-300 hover:text-red-800  hover:font-semibold"><a
+                    href="#analytics">Project Analytics</a></li>
+            <li class="m-4 p-2 font-signature hover:scale-105 duration-300 hover:text-red-800  hover:font-semibold"><a
+                    href="#aboutus">About
+                    us</a></li>
+
+        </ul>
+    </nav>
+
+
+    <section id="home" class="border-b-4 border-red-600">
+        <div class="project flex flex-col items-center justify-center">
+            <h1 class="  text-center text-4xl m-2 p-4 pt-20 text-red-800 font-bold">Federated Learning Based Heart
+                Disease Prediction in
+                Smart Cities</h1>
+
+            <p class="max-w-5xl text-justify m-2 p-2 text-lg font-bold font-signature">This project focuses on
+                implementing <span class="text-red-800 font-bold font-signature">Federated Learning</span> using the
+                <span class="text-red-800 font-bold font-signature">Flower</span> library in
+                Python. With a <span class="text-red-800 font-semibold font-signature">Heart Disease Dataset</span>, the
+                aim is to
+                perform a binary classification task while prioritizing data privacy. Federated learning facilitates
+                decentralized model training across devices, especially valuable in healthcare settings where data
+                security is crucial. The prototype establishes a federated learning setup involving a central server
+                and multiple clients with local heart disease datasets. Leveraging the Flower library, a Keras model
+                is collaboratively trained across clients without sharing raw data. Post-training, model updates are
+                aggregated, and the final federated model is evaluated for heart disease prediction accuracy. This
+                project serves to demonstrate the practicality of federated learning in healthcare applications.
+            </p>
+            <h1 class="text-center text-3xl m-2 p-2 text-red-800">Decentralized Learning with Flower: A Federated
+                Learning Framework
+            </h1>
+            <p class="max-w-5xl text-justify m-2 p-2 text-lg font-bold">Flower (Federated Learning with Flower) is an
+                open-source
+                framework for federated learning in Python.
+                It provides a high-level interface for building federated learning applications, enabling
+                communication between the server and client devices. Flower simplifies the implementation of
+                federated learning algorithms, allowing developers to focus on creating and customizing models while
+                addressing privacy concerns by training models on decentralized data sources. </p>
+        </div>
+    </section>
+
+    <section id="start" class="border-b-4 border-red-600">
+        <div class="section flex flex-col items-center justify-center mb-5">
+            <h1 class="text-center text-4xl m-2 p-4 text-red-800 font-semibold mt-20">START FEDERATED LEARNING </h1>
+
+            <div class="steps flex flex-col items-center justify-center border-b-2 border-red-700 mb-4">
+                <h2 class="text-center text-2xl m-2 p-4 text-red-800">Steps to Run Federated Learning:</h2>
+                <h2 id="server" class="text-center text-xl m-1 p-2 text-red-800 font-bold">FL Server is initiated already:</h2>
+                <ol class="flex flex-col items-center justify-center text-lg">
+                    <li class="p-2 m-2 text-center"><span class="text-red-600 font-bold"></span>Activate client
+                        execution using the "Trigger Client" button.</li>
+                    <li class="p-2 m-2 text-center"><span class="text-red-600 font-bold"></span>Once FL is completed,
+                        proceed to the "Predictions" section by clicking the "Check Results"
+                        button.</li>
+                    <li class="p-2 m-2 text-center"><span class="text-red-600 font-bold"></span>If the server
+                        experiences a disconnection, please initiate a restart by clicking "Re-Start FL Server"</li>
+                </ol>
+            </div>
+
+            <div class="start flex items-center justify-center mt-3">
+                <i class="fa-solid fa-1 numbers text-red-700 font-bold m-2 p-2">.</i>
+                <button onclick="changeColor(this)"
+                    class="w-80 btn border-2 border-red-700 p-2 m-2 ring-2 ring-red-400 rounded-md hover:scale-105 duration-300 text-lg hover:text-red-800 hover:font-semibold"
+                    id="triggerBtn">Trigger Client</button>
+                <span style="margin-right: 10px;"></span>
+            </div>
+            <div class="start1">
+                <p id="completionStatus" class="font-bold text-red-800 text-center mt-6 ">Complete the Federated
+                    Learning process before
+                    making predictions.</p>
+                <div class="three flex items-center justify-center">
+                    <i class="fa-solid fa-2 numbers mt-6 text-red-700 font-bold m-2 p-2">.</i>
+                    <button onclick="changeColor(this)"
+                        class=" w-80 btn mt-6 border-2 border-red-700 p-2 m-2 ring-2 hover:text-red-800 hover:font-semibold ring-red-400 rounded-md hover:scale-105 duration-300 text-lg"><a
+                            href="/results">Check Results</a></button>
+                </div>
+                <div class="three flex items-center justify-center">
+                    <i class="fa-solid fa-3 numbers mt-8 text-red-700 font-bold m-2 p-2">.</i>
+                    <button onclick="changeColor(this)"
+                        class=" w-80 mt-8 btn border-2 border-red-700 p-2 m-2 ring-2 ring-red-400 rounded-md hover:scale-105 duration-300 text-lg hover:text-red-800 hover:font-semibold"
+                        id="startBtn">Re-Start FL Server</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="analytics" class="analytics border-b-4 border-red-600">
+
+        <div class="flex flex-col items-center justify-center w-full mb-8">
+            <h1 class="text-center text-4xl m-2 p-4 text-red-800 font-semibold mt-20">ANALYTICS</h1>
+            <h1 class="text-center text-3xl m-2 p-4 text-red-800">Comparison: Federated Learning vs. Traditional Machine
+                Learning</h1>
+            <table class="table-auto ">
+                <thead class="bg-red-600">
+                    <tr class="border-2 border-red-700">
+                        <th class="m-4 border-2 border-red-700 p-2 min-w-10 font-bold">Aspect</th>
+                        <th class="m-4 border-2 border-red-700 p-2 min-w-10 font-bold">Traditional ML </th>
+                        <th class="m-4 border-2 border-red-700 p-2 min-w-10 font-bold">Federated Learning (FL) </th>
+                    </tr>
+                </thead>
+                <tbody class="bg-transparent w-full">
+                    <tr class="border-2 border-red-700">
+                        <td class="border-2 border-red-700 p-3 text-center w-44 text-red-800 font-bold">Data
+                            Handling</td>
+                        <td class="border-2 border-red-700 p-3 text-center w-72 text-red-800 font-bold">Centralised
+                            Data</td>
+                        <td class="border-2 border-red-700 p-3 text-center w-72 text-red-800 font-bold ">
+                            Decentralised Data</td>
+                    </tr>
+                    <tr class="border-2 border-red-700">
+                        <td class="border-2 border-red-700 p-3 text-center w-44 text-red-800 font-bold">Data Privacy
+                        </td>
+                        <td class="border-2 border-red-700 p-3 text-center w-72 text-red-800 font-bold">Potential
+                            privacy concerns due to centralised data</td>
+                        <td class="border-2 border-red-700 p-3 text-center w-72 text-red-800 font-bold">Addresses
+                            privacy concerns by keeping data local </td>
+                    </tr>
+                    <tr class="border-2 border-red-700">
+                        <td class="border-2 border-red-700 p-3 text-center w-44 text-red-800 font-bold">
+                            Communication Overhead</td>
+                        <td class="border-2 border-red-700 p-3 text-center w-72 text-red-800 font-bold">Higher
+                            communication overhead as the central server processes all data</td>
+                        <td class="border-2 border-red-700 p-3 text-center w-72 text-red-800 font-bold">Reduced
+                            communication overhead, as only model updates are transferred</td>
+                    </tr>
+                    <tr class="border-2 border-red-700">
+                        <td class="border-2 border-red-700 p-3 text-center w-44 text-red-800 font-bold">Real-time
+                            Adaptability</td>
+                        <td class="border-2 border-red-700 p-3 text-center w-72 text-red-800 font-bold">Model
+                            updates occur when the central server receives new data</td>
+                        <td class="border-2 border-red-700 p-3 text-center w-72 text-red-800 font-bold">Real-time
+                            adaptation with local updates as soon as new data is available</td>
+                    </tr>
+                    <tr class="border-2 border-red-700">
+                        <td class="border-2 border-red-700 p-3 text-center w-44 text-red-800 font-bold">
+                            Collaborative Learning</td>
+                        <td class="border-2 border-red-700 p-3 text-center w-72 text-red-800 font-bold">Central
+                            server holds authority in model training</td>
+                        <td class="border-2 border-red-700 p-3 text-center w-72 text-red-800 font-bold">Clients
+                            actively contribute to model training for collaborative learning</td>
+                    </tr>
+                    <tr class="border-2 border-red-700">
+                        <td class="border-2 border-red-700 p-3 text-center w-44 text-red-800 font-bold">
+                            Applicability to Healthcare</td>
+                        <td class="border-2 border-red-700 p-3 text-center w-72 text-red-800 font-bold">May pose
+                            challenges due to privacy concerns</td>
+                        <td class="border-2 border-red-700 p-3 text-center w-72 text-red-800 font-bold">Well-suited
+                            for healthcare with strong privacy preservation</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <!-- <div class="image1 flex flex-col items-center justify-center m-6 p-4">
+                <h1 class="text-center text-2xl m-2 p-4 text-red-800">Comparative Analysis of Accuracy Trends Across
+                    Clients Over Rounds</h1>
+                <img class="w-96" src="../static/images/download1.png" alt="accuracy">
+            </div>
+            <div class="image2 flex flex-col items-center justify-center m-2 p-4">
+                <h1 class="text-center text-2xl m-2 p-4 text-red-800">Comparative Analysis of Training Loss and Accuracy
+                    Across Clients</h1>
+                <img class="w-4/6" src="../static/images/download2.png" alt="accuracy">
+            </div> -->
+        </div>
+    </section>
+
+    <section id="aboutus">
+        <div class="team flex flex-col items-center justify-center">
+            <div class="team-heading flex items-center justify-center">
+                <h1 class="text-center text-2xl m-2 p-2 text-red-700 font-semibold"> Project Presented by Batch 19 - 8th
+                    Semester CSE, Atria Institute of Technology:</h1>
+            </div>
+            <div class="team-members flex items-center justify-center mt-9">
+                <ul class="text-center">
+                    <li class="text-center p-1 font-signature  font-semibold text-red-900">Rajashekara R(1AT20CS078)
+                    </li>
+                    <li class="text-center p-1 font-signature  font-semibold text-red-900">Sughosh Athreya K
+                        N(1AT20CS106)
+                    </li>
+                    <li class="text-center p-1 font-signature  font-semibold text-red-900">Thilak T(1AT20CS111)
+                    </li>
+                </ul>
+            </div>
+        </div>
+        </div>
+    </section>
+
+    <script>
+        let federated_learning_completed = false;
+
+        document.getElementById('startBtn').addEventListener('click', () => {
+            // Make a POST request to start federated learning
+            fetch('http://localhost:8000/start-federated-learning', { method: 'POST' })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.message === 'Federated Learning Server Started!') {
+                        // Federated Learning is started, update the completion status
+                        document.getElementById('completionStatus').innerText = 'Federated Learning is in progress. Please wait...';
+                    }
+                });
+        });
+
+        document.getElementById('triggerBtn').addEventListener('click', () => {
+            // Make a POST request to trigger client execution
+            fetch('http://localhost:8000/trigger-client-execution', { method: 'POST' })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.message === 'Client Execution Triggered!') {
+                        // Client execution is triggered, update the completion status
+                        document.getElementById('completionStatus').innerText = 'Federated Learning is in progress. Please wait...';
+                    }
+                });
+        });
+
+
+        // Polling function to check the completion status
+        function checkCompletionStatus() {
+            fetch('http://localhost:8000/check-federated-learning-status', { method: 'GET' })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.completed) {
+                        // Federated Learning is completed, update the completion status
+                        document.getElementById('completionStatus').innerText = 'Federated Learning is completed! You can now make predictions.';
+                    }
+                });
+        }
+        // Poll for completion status every 5 seconds (adjust as needed)
+        setInterval(checkCompletionStatus, 5000);
+
+        function changeColor(button) {
+    button.classList.add('clicked');
+    setTimeout(() => {
+        button.classList.remove('clicked');
+    }, 5000); 
+}
+
+    </script>
+</body>
+
+</html>

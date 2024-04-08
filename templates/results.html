@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Heart Disease Prediction</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Chivo:ital,wght@0,100..900;1,100..900&family=Urbanist:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+    <style>
+        body {
+            position: relative;
+            max-width: 100%;
+            height: 160vh;
+        }
+
+        body::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            background-image: url(../static/images/img1.jpg);
+            background-position: center center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            filter: brightness(25%);
+            z-index: -1;
+        }
+    </style>
+</head>
+
+<body class=" text-white ">
+    <div class="prediction flex flex-col items-center justify-center ">
+        <h1 class="text-center text-4xl m-2 p-4 text-red-500 font-semibold underline">Heart Disease Risk Prediction</h1>
+        <div class="prediction-input flex flex-col items-center justify-center">
+            <h2 class="text-center text-3xl m-2 p-2 text-red-500 ">Please share your details for our heart disease
+                prediction.</h2>
+            <form id="predictionForm" class="flex flex-col items-center justify-center" onsubmit="submitForm(event)"
+                method="POST">
+                <div class="form-main flex items-center justify-around  h-[81vh] w-[950px] ">
+                    <div
+                        class="form flex flex-col items-center justify-center h-[75vh] w-[400px]   rounded-lg p-2 m-2  shadow-md ring-1 ring-red-300 shadow-red-300">
+                        <label class="text-zinc-200 text-left " for="age">Age:</label>
+                        <input class="w-60 bg-transparent border-2 border-red-500 outline-none rounded-md p-1 m-1"
+                            type="number" id="age" name="age" required>
+
+                        <label class="text-zinc-200 text-left " for="sex">Sex:</label>
+                        <select class="w-60 bg-transparent border-2 border-red-500 outline-none rounded-md p-1 m-1"
+                            id="sex" name="sex" required>
+                            <option class="text-black " value="0">Female</option>
+                            <option class="text-black " value="1">Male</option>
+                        </select>
+
+                        <label class="text-zinc-200 text-left " for="cp">Chest Pain Type:</label>
+                        <input class="w-60 bg-transparent border-2 border-red-500 outline-none rounded-md p-1 m-1"
+                            type="number" id="cp" name="cp" required>
+
+                        <label class="text-zinc-200 text-left " for="trestbps">Resting Blood Pressure:</label>
+                        <input class="w-60 bg-transparent border-2 border-red-500 outline-none rounded-md p-1 m-1"
+                            type="number" id="trestbps" name="trestbps" required>
+
+                        <label class="text-zinc-200 text-left " for="chol">Serum Cholesterol:</label>
+                        <input class="w-60 bg-transparent border-2 border-red-500 outline-none rounded-md p-1 m-1"
+                            type="number" id="chol" name="chol" required>
+
+                        <label class="text-zinc-200 text-left " for="fbs">Fasting Blood Sugar:</label>
+                        <input class="w-60 bg-transparent border-2 border-red-500 outline-none rounded-md p-1 "
+                            type="number" id="fbs" name="fbs" required>
+                    </div>
+                    <div
+                        class="form flex flex-col items-center justify-center  h-[75vh] w-[400px]  shadow-md ring-1 ring-red-300  shadow-red-300 rounded-lg p-1 m-1">
+                        <label class="text-zinc-200 text-left " for="restecg">Resting Electrocardiographic
+                            Results:</label>
+                        <input class="w-60 bg-transparent border-2 border-red-500 outline-none rounded-md p-1 m-1"
+                            type="number" id="restecg" name="restecg" required>
+
+                        <label class="text-zinc-200 text-left " for="thalach">Maximum Heart Rate Achieved:</label>
+                        <input class="w-60 bg-transparent border-2 border-red-500 outline-none rounded-md p-1 m-1"
+                            type="number" id="thalach" name="thalach" required>
+                        <label class="text-zinc-200 text-left " for="exang">Exercise Induced Angina:</label>
+                        <select class="w-60 bg-transparent border-2 border-red-500 outline-none rounded-md p-1 m-1"
+                            id="exang" name="exang" required>
+                            <option class="text-black " value="0">No</option>
+                            <option class="text-black " value="1">Yes</option>
+                        </select>
+
+                        <label class="text-zinc-200 text-left " for="oldpeak">ST Depression Induced by Exercise
+                            Relative to Rest:</label>
+                        <input class="w-60 bg-transparent border-2 border-red-500 outline-none rounded-md p-1 m-1"
+                            type="number" id="oldpeak" name="oldpeak" step="0.1" required>
+
+                        <label class="text-zinc-200 text-left " for="slope">Slope:</label>
+                        <input class="w-60 bg-transparent border-2 border-red-500 outline-none rounded-md p-1 m-1"
+                            type="number" id="slope" name="slope" required>
+
+                        <label class="text-zinc-200 text-left " for="ca">Number of Major Vessels Colored by
+                            Fluoroscopy:</label>
+                        <input class="w-60 bg-transparent border-2 border-red-500 outline-none rounded-md p-1 m-1"
+                            type="number" id="ca" name="ca" required>
+
+                        <label class="text-zinc-200 text-left " for="thal">Thallium Stress Test:</label>
+                        <input class="w-60 bg-transparent border-2 border-red-500 outline-none rounded-md p-1 m-1"
+                            type="number" id="thal" name="thal" required>
+                    </div>
+                </div>
+                <div class="buttons flex items-center justify-between  w-96 p-1 m-1">
+                    <button
+                        class="hover:font-bold hover:text-red-600 p-2 w-40 border-red-500 border-2 rounded-lg hover:cursor-pointer hover:scale-105 duration-300"
+                        type="reset">Reset</button>
+                    <button
+                        class="hover:font-bold hover:text-red-600 p-2 w-40 border-red-500 border-2 rounded-lg hover:cursor-pointer hover:scale-105 duration-300"
+                        type="submit">Get Results</button>
+                </div>
+            </form>
+        </div>
+        <div class="prediction-value">
+            <p class="text-red-500 text-center font-signature font-bold text-2xl p-2 m-2">Results: <span
+                    id="predictionResult"
+                    class="text-red-500 text-center font-signature font-bold text-2xl p-2 m-2"></span></p>
+        </div>
+        <div class="disclaimer" class="flex items-center justify-center mt-6 p-4">
+            <span id="disclaimer" class="text-center italic font-thin text-orange-400 mt-6">The information provided by
+                this model is for informational purposes only and
+                should
+                not be solely relied upon for any medical diagnosis or treatment decisions !</span>
+        </div>
+
+
+        <div class="team flex flex-col items-center justify-center">
+            <div class="team-heading flex items-center justify-center mt-7">
+                <h1 class="text-center text-lg m-1 p-2 text-red-500 font-semibold"> Project Presented by Batch 19 - 8th
+                    Semester CSE, Atria Institute of Technology:</h1>
+            </div>
+            <div class="team-members flex items-center justify-center mt-4">
+                <ul class="text-center">
+                    <li class="text-center p-1 font-signature">Rajashekara R (1AT20CS078)
+                    </li>
+                    <li class="text-center p-1 font-signature">Sughosh Athreya K N (1AT20CS106)
+                    </li>
+                    <li class="text-center p-1 font-signature">Thilak T (1AT20CS111)
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <script>
+        async function submitForm(event) {
+            event.preventDefault();
+
+            // Retrieve user inputs
+            const age = document.getElementById('age').value;
+            const sex = document.getElementById('sex').value;
+            const cp = document.getElementById('cp').value;
+            const trestbps = document.getElementById('trestbps').value;
+            const chol = document.getElementById('chol').value;
+            const fbs = document.getElementById('fbs').value;
+            const restecg = document.getElementById('restecg').value;
+            const thalach = document.getElementById('thalach').value;
+            const exang = document.getElementById('exang').value;
+            const oldpeak = document.getElementById('oldpeak').value;
+            const slope = document.getElementById('slope').value;
+            const ca = document.getElementById('ca').value;
+            const thal = document.getElementById('thal').value;
+
+            // Prepare input data
+            const inputData = {
+                age,
+                sex,
+                cp,
+                trestbps,
+                chol,
+                fbs,
+                restecg,
+                thalach,
+                exang,
+                oldpeak,
+                slope,
+                ca,
+                thal
+            };
+
+            // Make a request to your backend with the input data for prediction
+            try {
+                const response = await fetch('/api/predict', {
+                    method: 'POST',  // Ensure this is set to POST
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(inputData),
+                });
+
+
+                const result = await response.json();
+                const predictedValue = result.prediction;
+
+                // Update the UI with the predicted value
+                const predictionResultElement = document.getElementById('predictionResult');
+                if (predictedValue > 0.5) {
+                    predictionResultElement.textContent = 'Our prediction model suggests a potential risk of heart disease.It is advisable to consult a healthcare professional for further evaluation.';
+                } else {
+                    predictionResultElement.textContent = 'Our prediction model indicates a low risk of heart disease. However, it is still important to maintain a healthy lifestyle and regular check-ups with a healthcare professional.';
+                }
+            } catch (error) {
+                console.error('Error making prediction:', error);
+                // Handle errors appropriately (e.g., display an error message to the user)
+            }
+        }
+
+
+    </script>
+</body>
+
+</html>
